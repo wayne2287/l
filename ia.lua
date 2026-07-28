@@ -44,12 +44,17 @@ end
 
 
 function ReadFile(Name) 
-	if isfile(FileName.."/"..GameName.."/"..Name) == true then
-		return readfile(FileName.."/"..GameName.."/"..Name)
-	else
-		return readfile(FileName.."/"..GameName..Name)
-	end
-	return readfile(FileName.."/"..GameName.."/"..Name)
+	local a
+	pcall(function()
+		
+		if isfile(FileName.."/"..GameName.."/"..Name) == true then
+			return readfile(FileName.."/"..GameName.."/"..Name)
+		else
+			return readfile(FileName.."/"..GameName..Name)
+		end
+		a = readfile(FileName.."/"..GameName.."/"..Name)
+	end)
+	return a
 end
 
 function CreateFolder(Name)
