@@ -246,6 +246,7 @@ function Remotes()
 		end
 	end
 
+	print(ReadFile("Game Version"))
 	if IsFolder("/Hash System") and IsFile("Game Version") and ReadFile("Game Version") and game.PlaceVersion == tonumber(ReadFile("Game Version")) then
 		print("Ist Nicht geupdated!")
 
