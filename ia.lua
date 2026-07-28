@@ -57,15 +57,17 @@ function CreateFolder(Name)
 end	
 
 function CreateFile(Name, Data, CheckIfFile)
-	if CheckIfFile == true then
-		if isfile(FileName.."/"..GameName.."/"..Name) then
-
+	pcall(function()
+		if CheckIfFile == true then
+			if isfile(FileName.."/"..GameName.."/"..Name) then
+	
+			else
+				writefile(FileName.."/"..GameName.."/"..Name, Data)
+			end
 		else
 			writefile(FileName.."/"..GameName.."/"..Name, Data)
 		end
-	else
-		writefile(FileName.."/"..GameName.."/"..Name, Data)
-	end
+	end)
 end	
 
 -- local TemplateFile = game:HttpGet("https://pastebin.com/raw/yQUgfbZy")
