@@ -1902,7 +1902,7 @@ function RemoveTextures()
     Lighting.GlobalShadows = false
     Lighting.FogEnd = 9e9
     settings().Rendering.QualityLevel = 1
-    LPH_NO_VIRTUALIZE(function() -- removes obfuscation to make this section MUCH faster
+    --LPH_NO_VIRTUALIZE(function() -- removes obfuscation to make this section MUCH faster
         for i,v in ipairs(game:GetDescendants()) do
             task.wait(0.01)
             if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
@@ -1924,7 +1924,7 @@ function RemoveTextures()
                 v.Enabled = false
             end
         end
-    end)()
+    --end)()
     workspace.DescendantAdded:Connect(function(child)
         coroutine.wrap(function()
             if child:IsA('ForceField') then
@@ -2540,7 +2540,7 @@ end
 
 function CollectHoney()
     local Distance, TargetTree = math.huge, nil
-    LPH_JIT_MAX(function()
+    --LPH_JIT_MAX(function()
         for i,v in ipairs(Blocks:GetChildren()) do
             if v:FindFirstChild('HiveLocations') then
                 for i2, v2 in ipairs(v.HiveLocations:GetChildren()) do
@@ -2554,7 +2554,7 @@ function CollectHoney()
                 end
             end
         end
-    end)()
+    --end)()
     if TargetTree and TargetTree.Position then
         TGoto(TargetTree.Position)
         task.spawn(function()
@@ -2732,7 +2732,7 @@ end
 
 function CollectFruits()
     local Distance, TargetFruit = math.huge, nil
-    LPH_JIT_MAX(function()
+    --LPH_JIT_MAX(function()
         for i,v in ipairs(Blocks:GetChildren()) do
             if v:FindFirstChild('FruitLocations') then
                 for i2, v2 in ipairs(v.FruitLocations:GetChildren()) do
@@ -2746,7 +2746,7 @@ function CollectFruits()
                 end
             end
         end
-    end)()
+    --end)()
     if TargetFruit and TargetFruit.Parent and TargetFruit.Parent.Position then
         TGoto(TargetFruit.Parent.Position)
         task.spawn(function()
@@ -5786,13 +5786,13 @@ end)
 
 -- destroy seats
 task.spawn(function()
-    LPH_NO_VIRTUALIZE(function() -- removes obfuscation to make this section MUCH faster
+    --LPH_NO_VIRTUALIZE(function() -- removes obfuscation to make this section MUCH faster
         for i,v in pairs(game:GetDescendants()) do
             if v:IsA('Seat') or v:IsA('SeatPart') then
                 v:Destroy()
             end
         end
-    end)()
+   -- end)()
 end)
 
 -- Inputs
