@@ -780,6 +780,7 @@ function CreateGuideBlock()
     Guide.Transparency = 1 -- 0.7
     Guide.Size = Vector3.new(3,3,3)
     Guide.Material = 'SmoothPlastic'
+	if not GetClosestBlockForSchematica() then return end
     Guide.Position = GetClosestBlockForSchematica().Position + Vector3.new(0,3,0)
 
     local SelectionBox = Instance.new('SelectionBox', Guide)
