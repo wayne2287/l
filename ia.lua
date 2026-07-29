@@ -877,6 +877,7 @@ function CreatePreviewBlock()
     PreviewBlock.Transparency = 1 -- 0.7
     PreviewBlock.Size = Vector3.new(3,3,3)
     PreviewBlock.Material = 'SmoothPlastic'
+	if not PreviewBlock then return end
     PreviewBlock.Position = GetClosestBlockForSchematica().Position + Vector3.new(0,3,0)
 
     local SelectionBox = Instance.new('SelectionBox', PreviewBlock)
