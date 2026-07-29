@@ -557,6 +557,8 @@ local WildernessEntities = workspace.WildernessIsland.Entities or nil
 local spawnPrefabs = workspace:FindFirstChild('spawnPrefabs') or nil
 local Void = workspace:FindFirstChild('spawnPrefabs') and workspace:FindFirstChild('spawnPrefabs'):FindFirstChild('WildIslands.void') or nil
 local WildEventTriggers = workspace:FindFirstChild('spawnPrefabs') and workspace:FindFirstChild('spawnPrefabs'):FindFirstChild('WildEventTriggers') or nil
+print("Heh...")
+print(WildEventTriggers)
 local FossilSites = workspace:FindFirstChild('spawnPrefabs') and workspace:FindFirstChild('spawnPrefabs'):FindFirstChild('FossilSites') or nil
 
 
@@ -2293,7 +2295,7 @@ function BossFarmFunction(boss)
         if WildEventTriggers then
             if not WildernessEntities:FindFirstChild(boss) and boss ~= 'skorpSerpent' and BossFarmToggleSettings.RespawnBoss and not AlreadySpawningBoss then
                 promptName = bossProximityPrompts[boss]
-print(promptName)
+
                 if promptName then
                     ProximityPrompt = WildEventTriggers:FindFirstChild(promptName):FindFirstChild('ProximityPrompt')
                     repeat task.wait(1)
@@ -3963,6 +3965,7 @@ task.spawn(function()
             BossFarmToggle = value
             ToggleNotification(value, 'Boss Farm')
             while BossFarmToggle and task.wait() do
+print(BossFarmToggle)
                 BossFarmFunction(BossFarmToggleSettings.SelectedBoss)
             end
         end;
