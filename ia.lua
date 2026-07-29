@@ -2293,6 +2293,7 @@ function BossFarmFunction(boss)
         if WildEventTriggers then
             if not WildernessEntities:FindFirstChild(boss) and boss ~= 'skorpSerpent' and BossFarmToggleSettings.RespawnBoss and not AlreadySpawningBoss then
                 promptName = bossProximityPrompts[boss]
+print(promptName)
                 if promptName then
                     ProximityPrompt = WildEventTriggers:FindFirstChild(promptName):FindFirstChild('ProximityPrompt')
                     repeat task.wait(1)
